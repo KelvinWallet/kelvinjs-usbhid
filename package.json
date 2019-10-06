@@ -1,0 +1,32 @@
+{
+  "name": "kelvinjs-usbhid",
+  "version": "1.0.0",
+  "description": "kelvinjs-usbhid",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KelvinWallet/kelvinjs-usbhid.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@types/node-hid": "0.7.3",
+    "node-hid": "0.7.9"
+  },
+  "devDependencies": {
+    "@types/node": "^10.14.20",
+    "rimraf": "^3.0.0",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
+  },
+  "scripts": {
+    "lint": "tslint -p .",
+    "build": "rimraf lib && tsc -p ."
+  }
+}

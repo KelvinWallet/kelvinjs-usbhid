@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib",
+    "strict": true,
+    "removeComments": true,
+    "declaration": true,
+    "module": "commonjs",
+    "target": "es2017",
+    "lib": ["es2016"]
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
