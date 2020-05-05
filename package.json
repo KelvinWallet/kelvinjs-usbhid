@@ -1,15 +1,12 @@
 {
   "name": "kelvinjs-usbhid",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "kelvinjs-usbhid",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
-  "engines": {
-    "node": "^10"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KelvinWallet/kelvinjs-usbhid.git"
