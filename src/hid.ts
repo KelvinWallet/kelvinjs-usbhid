@@ -239,9 +239,8 @@ export function devices(): NodeHID.Device[] {
   return NodeHID.devices().filter(
     (dev) =>
       dev &&
-      dev.usage === U2F_USAGE &&
-      dev.usagePage &&
-      (dev.usagePage & FIDO_USAGE_PAGE) === FIDO_USAGE_PAGE,
+      dev.vendorId === 0x0483 &&
+      dev.productId === 0x5750,
   );
 }
 

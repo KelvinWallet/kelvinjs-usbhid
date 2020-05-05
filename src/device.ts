@@ -4,8 +4,6 @@ import { U2FAPDU, U2FError } from './definition';
 import * as U2FHID from './hid';
 import * as U2FToken from './token';
 
-import * as os from 'os';
-
 class KelvinWalletRequest extends U2FToken.U2FRequest {
   constructor(cmdID: number, payload?: string | Buffer) {
     const dataHeader = Buffer.alloc(4, 0);
@@ -42,17 +40,12 @@ const open = (deviceInfo: NodeHID.Device): U2FHID.HIDDevice => {
 
 export class KelvinWallet extends U2FToken.U2FDevice {
   constructor() {
-    let devices = NodeHID.devices();
-
-    if (os.platform() === 'win32' || os.platform() === 'darwin') {
-      const filter = (dev: any) => (
+    const devices = NodeHID.devices().filter(
+      (dev) =>
         dev &&
-        dev.usage === U2FHID.U2F_USAGE &&
-        dev.usagePage &&
-        (dev.usagePage & U2FHID.FIDO_USAGE_PAGE) === U2FHID.FIDO_USAGE_PAGE
-      );
-      devices = devices.filter(filter);
-    }
+        dev.vendorId === 0x0483 &&
+        dev.productId === 0x5750,
+    );
 
     if (devices.length > 0) {
       super(open(devices[0]));
